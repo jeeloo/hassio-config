@@ -140,3 +140,46 @@
   - entity_id: binary_sensor.bollen_sensor
     platform: state
     to: 'on'
+- action:
+  - data:
+      brightness: 150
+    entity_id: light.barnsovrum
+    service: homeassistant.turn_on
+  alias: Sovdags barn on
+  condition: []
+  id: '1518723121672'
+  trigger:
+  - at: '19:15'
+    platform: time
+- action:
+  - service: homeassistant.turn_on
+    entity_id: light.barnsovrum
+    data:
+      brightness: 1
+      transition: 900
+  alias: Sovdags barn dimma
+  condition: []
+  id: '1518723683892'
+  trigger:
+  - at: '19:45'
+    platform: time
+- action:
+  - service: light.hue_activate_scene
+    data:
+      group_name: Barnsovrum
+      scene_name: Nightlight
+  alias: Sovdags barn nattlampa
+  condition: []
+  id: '1518725681480'
+  trigger:
+  - at: '20:00'
+    platform: time
+- action:
+  - service: light.turn_off
+    entity_id: light.barnsovrum
+  alias: Sovdags barn nattlampa
+  condition: []
+  id: '1518726278721'
+  trigger:
+  - at: '21:00'
+    platform: time

@@ -11,7 +11,7 @@ random_vardagsrum:
   - data:
       brightness: 200
       effect: random
-      entity_id: light.vardagsrum_rgb
+      entity_id: light.soffa
       transition: 7
     service: light.turn_on
 '1516552212589':
