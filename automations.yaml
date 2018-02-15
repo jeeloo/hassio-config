@@ -1,0 +1,142 @@
+- action:
+  - service: switch.turn_on
+    entity_id: group.akvarium
+  alias: Akvarium on
+  condition: []
+  id: '1513456575113'
+  trigger:
+  - at: 09:30
+    platform: time
+- action:
+  - service: homeassistant.turn_off
+    entity_id: group.akvarium
+  alias: Akvarium Off
+  condition: []
+  id: '1513458015193'
+  trigger:
+  - at: '19:00'
+    platform: time
+- action:
+  - entity_id: group.nattlampor
+    service: homeassistant.turn_on
+  alias: 'Nattlampor på '
+  condition: []
+  id: '1513471472905'
+  trigger:
+  - event: sunset
+    platform: sun
+  - at: 05:00
+    platform: time
+- action:
+  - entity_id: group.nattlampor
+    service: homeassistant.turn_off
+  alias: Nattlampor av
+  condition: []
+  id: '1513471571410'
+  trigger:
+  - at: 00:00
+    platform: time
+  - event: sunrise
+    platform: sun
+  - at: 09:00
+    platform: time
+- action:
+  - entity_id: switch.barnsovrum_switch
+    service: switch.turn_on
+  alias: Barnsovrum fönsterlampa på
+  condition:
+  - condition: time
+    weekday:
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
+  id: '1513526053354'
+  trigger:
+  - at: 06:45
+    platform: time
+- action:
+  - service: switch.turn_off
+    entity_id: switch.barnsovrum_switch
+  alias: Barnsovrum fönsterlampa av
+  condition: []
+  id: '1513526396033'
+  trigger:
+  - at: '19:45'
+    platform: time
+  - event: sunrise
+    offset: 00:30:00
+    platform: sun
+- action:
+  - service: homeassistant.turn_on
+    entity_id: switch.motorvarmare_switch
+  alias: Motorvärmare på
+  condition: []
+  id: '1513639483915'
+  trigger:
+  - at: 05:30
+    platform: time
+- action:
+  - service: homeassistant.turn_off
+    entity_id: switch.motorvarmare_switch
+  alias: Motorvärmare av
+  condition: []
+  id: '1513639537081'
+  trigger:
+  - at: '8:00'
+    platform: time
+- action:
+  - entity_id: switch.barnsovrum_switch
+    service: homeassistant.turn_on
+  alias: Barnsovrum fönsterlampa på kväll
+  condition: []
+  id: '1516525857892'
+  trigger:
+  - event: sunset
+    offset: -00:30:00
+    platform: sun
+- action:
+  - data:
+      brightness: 200
+    entity_id: group.entre
+    service: homeassistant.turn_on
+  alias: Sensor hallen på
+  condition: []
+  id: '1516526519801'
+  trigger:
+  - entity_id: binary_sensor.bollen_sensor
+    platform: state
+    to: 'on'
+- action:
+  - service: homeassistant.turn_off
+    entity_id: group.entre
+    data:
+      transition: 15
+  alias: Sensor hallen av
+  id: '1516528117333'
+  trigger:
+  - entity_id: binary_sensor.bollen_sensor
+    platform: state
+    to: 'off'
+    for: 00:03:00
+- action:
+  - data:
+      message: Rörelse i hallen
+    service: notify.pushbullet
+  alias: Larm test
+  condition:
+  - after: 08:00
+    before: '16:00'
+    condition: time
+    weekday:
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
+  id: '1516551013433'
+  trigger:
+  - entity_id: binary_sensor.bollen_sensor
+    platform: state
+    to: 'on'

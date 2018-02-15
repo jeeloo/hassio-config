@@ -1,0 +1,22 @@
+random_barn:
+  sequence:
+  - service: light.turn_on
+    data:
+      entity_id: light.barnsovrum_rgb
+      brightness: 255
+      effect: random
+      transition: 10
+random_vardagsrum:
+  sequence:
+  - data:
+      brightness: 200
+      effect: random
+      entity_id: light.vardagsrum_rgb
+      transition: 7
+    service: light.turn_on
+'1516552212589':
+  alias: Pushbullet
+  sequence:
+  - data:
+      message: "Test pushbullet"
+    service: notify.pushbullet

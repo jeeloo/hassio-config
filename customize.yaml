@@ -1,0 +1,28 @@
+sensor.buske_alarm_level:
+  hidden: true
+sensor.buske_alarm_type:
+  hidden: true
+sensor.fonster_matbord_exporting:
+  hidden: true
+sensor.fonster_vardagsrum_exporting:
+  hidden: true
+sensor.lekrum_exporting:
+  hidden: true
+sensor.lekrum_sourcenodeid:
+  hidden: true
+sensor.lilla_akvariet_exporting:
+  hidden: true
+sensor.motorvarmare_exporting:
+  hidden: true
+sensor.rio180_exporting:
+  hidden: true
+sensor.lekrum_alarm_level:
+  hidden: true
+sensor.lekrum_alarm_type:
+  hidden: true
+sensor.buske_larm_type:
+  hidden: true
+sensor.buske_exporting:
+  hidden: true
+sensor.buske_sourcenodeid:
+  hidden: true

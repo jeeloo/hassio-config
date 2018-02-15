@@ -1,0 +1,28 @@
+akvarium:
+  name: Akvarium
+  entities:
+    - switch.lilla_akvariet_switch
+    - switch.rio180_switch
+almanac:
+  name: Almanac
+  entities:
+    - sensor.date
+    - sensor.time
+    - sensor.time_utc
+    - sun.sun
+nattlampor:
+  name: Nattlampor
+  entities:
+    - switch.fonster_hallen_switch
+    - switch.fonster_matbord_switch
+    - switch.fonster_vardagsrum_switch
+    - switch.julgran_switch
+    - switch.lekrum_switch
+    - switch.buske_switch
+    - light.koksfonster
+    - light.dator
+entre:
+  name: Entre
+  entities:
+    - light.entre1
+    - light.entre2
