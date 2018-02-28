@@ -102,7 +102,9 @@
     entity_id: group.entre
     service: homeassistant.turn_on
   alias: Sensor hallen på
-  condition: []
+  condition:
+  - condition: template
+    value_template: '{{ states.sun.sun.attributes.elevation < 2 }}'
   id: '1516526519801'
   trigger:
   - entity_id: binary_sensor.bollen_sensor
@@ -142,9 +144,10 @@
     to: 'on'
 - action:
   - data:
-      brightness: 150
-    entity_id: light.barnsovrum
-    service: homeassistant.turn_on
+      brightness: 175
+      kelvin: 2700
+      entity_id: light.barnsovrum_rgb
+    service: light.turn_on
   alias: Sovdags barn on
   condition: []
   id: '1518723121672'
@@ -152,11 +155,10 @@
   - at: '19:15'
     platform: time
 - action:
-  - service: homeassistant.turn_on
-    entity_id: light.barnsovrum
+  - service: light.turn_off
     data:
-      brightness: 1
-      transition: 900
+      entity_id: light.barnsovrum_rgb
+      transition: 899
   alias: Sovdags barn dimma
   condition: []
   id: '1518723683892'
@@ -176,10 +178,25 @@
     platform: time
 - action:
   - service: light.turn_off
-    entity_id: light.barnsovrum
-  alias: Sovdags barn nattlampa
+    data:
+      entity_id: light.barnsovrum_rgb
+  alias: Sovdags barn nattlampa av
   condition: []
   id: '1518726278721'
   trigger:
   - at: '21:00'
     platform: time
+- action:
+  - data:
+      activity: 25940701
+      entity_id: remote.harmony_hub
+    service: remote.turn_on
+  alias: Chromecast tigger
+  condition:                                                                    
+  - condition: template                                                         
+    value_template: '{{ states.remote.harmony_hub.attributes.current_activity != 25940701 }}'
+  id: '1518947206385'
+  trigger:
+  - entity_id: media_player.vardagsrum
+    platform: state
+    to: playing

@@ -14,7 +14,7 @@ homeassistant:
   customize: !include customize.yaml
 
 # Show links to resources in log and frontend
-introduction:
+#introduction:
 
 # Enables the frontend
 frontend:
@@ -64,6 +64,18 @@ sensor:
       - temperature
       - symbol
       - dewpointTemperature
+#Show harmony remote avtivity
+  - platform: template
+    sensors:
+      living_room:
+        value_template: '{{ states.remote.harmony_hub.attributes.current_activity }}'
+        friendly_name: 'Vardagsrum Harmony'
+  - platform: time_date
+    display_options:
+      - 'time'
+      - 'date'
+      - 'time_utc'
+      - 'beat'
 
 # Text to speech
 tts:

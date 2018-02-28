@@ -26,3 +26,9 @@ sensor.buske_exporting:
   hidden: true
 sensor.buske_sourcenodeid:
   hidden: true
+sensor.bollen_direction:
+  hidden: true
+sensor.bollen_general:
+  hidden: true
+sensor.bollen_general_2:
+  hidden: true

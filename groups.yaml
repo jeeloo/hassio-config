@@ -9,7 +9,12 @@ almanac:
     - sensor.date
     - sensor.time
     - sensor.time_utc
+    - sensor.internet_time
     - sun.sun
+hamony:
+  name: Harmony Hub
+  entities:
+    - sensor.living_room
 nattlampor:
   name: Nattlampor
   entities:

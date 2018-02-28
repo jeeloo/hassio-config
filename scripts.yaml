@@ -20,3 +20,9 @@ random_vardagsrum:
   - data:
       message: "Test pushbullet"
     service: notify.pushbullet
+chromecast:
+  sequence:
+  - data:                          
+      entity_id: remote.harmony_hub
+      activity: 25940701
+    service: remote.turn_on        
