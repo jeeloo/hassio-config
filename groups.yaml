@@ -1,8 +1,8 @@
 akvarium:
   name: Akvarium
   entities:
-    - switch.lilla_akvariet_switch
-    - switch.rio180_switch
+    - switch.switch_2
+    - switch.switch_3
 almanac:
   name: Almanac
   entities:
@@ -18,12 +18,12 @@ hamony:
 nattlampor:
   name: Nattlampor
   entities:
-    - switch.fonster_hallen_switch
-    - switch.fonster_matbord_switch
-    - switch.fonster_vardagsrum_switch
-    - switch.julgran_switch
-    - switch.lekrum_switch
-    - switch.buske_switch
+    - switch.switch_5
+    - switch.switch
+    - switch.switch_4
+    - switch.switch_7
+    - switch.switch_9
+    - switch.switch_10
     - light.koksfonster
     - light.dator
 entre:

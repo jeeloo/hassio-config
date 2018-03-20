@@ -1,6 +1,7 @@
 - action:
   - service: switch.turn_on
-    entity_id: group.akvarium
+    data:
+      entity_id: group.akvarium
   alias: Akvarium on
   condition: []
   id: '1513456575113'
@@ -9,7 +10,8 @@
     platform: time
 - action:
   - service: homeassistant.turn_off
-    entity_id: group.akvarium
+    data:
+      entity_id: group.akvarium
   alias: Akvarium Off
   condition: []
   id: '1513458015193'
@@ -17,7 +19,8 @@
   - at: '19:00'
     platform: time
 - action:
-  - entity_id: group.nattlampor
+  - data:
+      entity_id: group.nattlampor
     service: homeassistant.turn_on
   alias: 'Nattlampor på '
   condition: []
@@ -28,7 +31,8 @@
   - at: 05:00
     platform: time
 - action:
-  - entity_id: group.nattlampor
+  - data:
+      entity_id: group.nattlampor
     service: homeassistant.turn_off
   alias: Nattlampor av
   condition: []
@@ -41,7 +45,8 @@
   - at: 09:00
     platform: time
 - action:
-  - entity_id: switch.barnsovrum_switch
+  - data:
+      entity_id: switch.switch_6
     service: switch.turn_on
   alias: Barnsovrum fönsterlampa på
   condition:
@@ -57,8 +62,9 @@
   - at: 06:45
     platform: time
 - action:
-  - service: switch.turn_off
-    entity_id: switch.barnsovrum_switch
+  - data:
+      entity_id: switch.switch_6
+    service: switch.turn_off
   alias: Barnsovrum fönsterlampa av
   condition: []
   id: '1513526396033'
@@ -68,9 +74,12 @@
   - event: sunrise
     offset: 00:30:00
     platform: sun
+  - at: 08:00
+    platform: time
 - action:
-  - service: homeassistant.turn_on
-    entity_id: switch.motorvarmare_switch
+  - data:
+      entity_id: switch.switch_8
+    service: homeassistant.turn_on
   alias: Motorvärmare på
   condition: []
   id: '1513639483915'
@@ -78,8 +87,9 @@
   - at: 05:30
     platform: time
 - action:
-  - service: homeassistant.turn_off
-    entity_id: switch.motorvarmare_switch
+  - data:
+      entity_id: switch.switch_8
+    service: homeassistant.turn_off
   alias: Motorvärmare av
   condition: []
   id: '1513639537081'
@@ -87,7 +97,8 @@
   - at: '8:00'
     platform: time
 - action:
-  - entity_id: switch.barnsovrum_switch
+  - data:
+      entity_id: switch.switch_6
     service: homeassistant.turn_on
   alias: Barnsovrum fönsterlampa på kväll
   condition: []
@@ -99,7 +110,7 @@
 - action:
   - data:
       brightness: 200
-    entity_id: group.entre
+      entity_id: group.entre
     service: homeassistant.turn_on
   alias: Sensor hallen på
   condition:
@@ -107,21 +118,21 @@
     value_template: '{{ states.sun.sun.attributes.elevation < 2 }}'
   id: '1516526519801'
   trigger:
-  - entity_id: binary_sensor.bollen_sensor
+  - entity_id: binary_sensor.sensor
     platform: state
     to: 'on'
 - action:
-  - service: homeassistant.turn_off
-    entity_id: group.entre
-    data:
+  - data:
+      entity_id: group.entre
       transition: 15
+    service: homeassistant.turn_off
   alias: Sensor hallen av
   id: '1516528117333'
   trigger:
-  - entity_id: binary_sensor.bollen_sensor
+  - entity_id: binary_sensor.sensor
+    for: 00:03:00
     platform: state
     to: 'off'
-    for: 00:03:00
 - action:
   - data:
       message: Rörelse i hallen
@@ -191,10 +202,11 @@
       activity: 25940701
       entity_id: remote.harmony_hub
     service: remote.turn_on
-  alias: Chromecast tigger
-  condition:                                                                    
-  - condition: template                                                         
-    value_template: '{{ states.remote.harmony_hub.attributes.current_activity != 25940701 }}'
+  alias: Chromecast trigger
+  condition:
+  - condition: template
+    value_template: '{{ states.remote.harmony_hub.attributes.current_activity != 25940701
+      }}'
   id: '1518947206385'
   trigger:
   - entity_id: media_player.vardagsrum

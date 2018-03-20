@@ -1,34 +1,24 @@
-sensor.buske_alarm_level:
+sensor.alarm_level:
   hidden: true
-sensor.buske_alarm_type:
+sensor.alarm_level_2:
   hidden: true
-sensor.fonster_matbord_exporting:
+sensor.alarm_type:
   hidden: true
-sensor.fonster_vardagsrum_exporting:
+sensor.alarm_type_2:
   hidden: true
-sensor.lekrum_exporting:
+sensor.fibaro_system_fgms001_motion_sensor_general:
   hidden: true
-sensor.lekrum_sourcenodeid:
+sensor.fibaro_system_fgwpef_wall_plug_exporting:
   hidden: true
-sensor.lilla_akvariet_exporting:
+sensor.fibaro_system_fgwpef_wall_plug_exporting_2:
   hidden: true
-sensor.motorvarmare_exporting:
+sensor.fibaro_system_fgwpef_wall_plug_exporting_3:
   hidden: true
-sensor.rio180_exporting:
+sensor.fibaro_system_fgwpef_wall_plug_exporting_4:
   hidden: true
-sensor.lekrum_alarm_level:
+sensor.fibaro_system_fgwpef_wall_plug_exporting_5:
   hidden: true
-sensor.lekrum_alarm_type:
+sensor.fibaro_system_fgwpef_wall_plug_gen5_exporting:
   hidden: true
-sensor.buske_larm_type:
-  hidden: true
-sensor.buske_exporting:
-  hidden: true
-sensor.buske_sourcenodeid:
-  hidden: true
-sensor.bollen_direction:
-  hidden: true
-sensor.bollen_general:
-  hidden: true
-sensor.bollen_general_2:
+sensor.fibaro_system_fgwpef_wall_plug_gen5_exporting_2:
   hidden: true
