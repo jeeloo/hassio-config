@@ -42,7 +42,7 @@
     platform: time
   - event: sunrise
     platform: sun
-  - at: 09:00
+  - at: 08:00
     platform: time
 - action:
   - data:
@@ -101,15 +101,18 @@
       entity_id: switch.switch_6
     service: homeassistant.turn_on
   alias: Barnsovrum fönsterlampa på kväll
-  condition: []
+  condition:
+  - after: '14:00'
+    before: '19:30'
+    condition: time
   id: '1516525857892'
   trigger:
   - event: sunset
     offset: -00:30:00
     platform: sun
 - action:
-  - data:
-      brightness: 200
+  - data_template:
+      brightness: '{{states.sun.sun.attributes.elevation | int * 4 + 150}}'
       entity_id: group.entre
     service: homeassistant.turn_on
   alias: Sensor hallen på

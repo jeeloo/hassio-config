@@ -1,0 +1,280 @@
+media_player.max2play:
+  name:
+  platform: squeezebox
+  unique_id: b8:27:eb:89:84:d5
+media_player.sovrum:
+  name:
+  platform: squeezebox
+  unique_id: 00:04:20:12:83:0c
+media_player.badrum:
+  name:
+  platform: sonos
+  unique_id: RINCON_5CAAFD24B9C601400
+media_player.lekrum:
+  name:
+  platform: sonos
+  unique_id: RINCON_5CAAFD276A5801400
+media_player.sovrum_2:
+  name:
+  platform: sonos
+  unique_id: RINCON_5CAAFD56858C01400
+media_player.kok:
+  name:
+  platform: sonos
+  unique_id: RINCON_5CAAFD56882A01400
+media_player.livingroom:
+  name:
+  platform: cast
+  unique_id: b98627dd-60c3-c4f9-4860-549fb256bded
+media_player.google_home_:
+  name:
+  platform: cast
+  unique_id: 309c7743-534c-dffd-85a7-08875f469eff
+switch.switch:
+  name: ''
+  platform: zwave
+  unique_id: 2-72057594076282880
+binary_sensor.sensor:
+  name:
+  platform: zwave
+  unique_id: 3-72057594093240320
+switch.switch_2:
+  name: ''
+  platform: zwave
+  unique_id: 5-72057594126614528
+switch.switch_3:
+  name: ''
+  platform: zwave
+  unique_id: 6-72057594143391744
+switch.switch_4:
+  name: Altan
+  platform: zwave
+  unique_id: 7-72057594160168960
+switch.switch_5:
+  name:
+  platform: zwave
+  unique_id: 9-72057594193723392
+switch.switch_6:
+  name: ''
+  platform: zwave
+  unique_id: 10-72057594210500608
+switch.switch_7:
+  name:
+  platform: zwave
+  unique_id: 11-72057594227277824
+switch.switch_8:
+  name: ''
+  platform: zwave
+  unique_id: 12-72057594244055040
+switch.switch_9:
+  name: ''
+  platform: zwave
+  unique_id: 15-72057594294386688
+switch.switch_10:
+  name:
+  platform: zwave
+  unique_id: 16-72057594311163904
+sensor.unknown:
+  name:
+  platform: zwave
+  unique_id: 2-72057594076495874
+sensor.unknown_2:
+  name:
+  platform: zwave
+  unique_id: 5-72057594126827522
+sensor.unknown_3:
+  name:
+  platform: zwave
+  unique_id: 6-72057594143604738
+sensor.unknown_4:
+  name:
+  platform: zwave
+  unique_id: 7-72057594160381954
+sensor.unknown_5:
+  name:
+  platform: zwave
+  unique_id: 12-72057594244268034
+sensor.unknown_6:
+  name:
+  platform: zwave
+  unique_id: 15-72057594294599682
+sensor.alarm_type:
+  name:
+  platform: zwave
+  unique_id: 15-72057594295631873
+sensor.alarm_level:
+  name:
+  platform: zwave
+  unique_id: 15-72057594295631889
+sensor.unknown_7:
+  name:
+  platform: zwave
+  unique_id: 16-72057594311376898
+sensor.alarm_type_2:
+  name:
+  platform: zwave
+  unique_id: 16-72057594312409089
+sensor.alarm_level_2:
+  name:
+  platform: zwave
+  unique_id: 16-72057594312409105
+sensor.fibaro_system_fgwpef_wall_plug_power:
+  name:
+  platform: zwave
+  unique_id: 2-72057594076496002
+sensor.fibaro_system_fgwpef_wall_plug_exporting:
+  name:
+  platform: zwave
+  unique_id: 2-72057594076496384
+sensor.fibaro_system_fgwpef_wall_plug_power_2:
+  name:
+  platform: zwave
+  unique_id: 5-72057594126827650
+sensor.fibaro_system_fgwpef_wall_plug_exporting_2:
+  name:
+  platform: zwave
+  unique_id: 5-72057594126828032
+sensor.fibaro_system_fgwpef_wall_plug_power_3:
+  name:
+  platform: zwave
+  unique_id: 6-72057594143604866
+sensor.fibaro_system_fgwpef_wall_plug_exporting_3:
+  name:
+  platform: zwave
+  unique_id: 6-72057594143605248
+sensor.fibaro_system_fgwpef_wall_plug_power_4:
+  name:
+  platform: zwave
+  unique_id: 7-72057594160382082
+sensor.fibaro_system_fgwpef_wall_plug_exporting_4:
+  name:
+  platform: zwave
+  unique_id: 7-72057594160382464
+sensor.fibaro_system_fgwpef_wall_plug_power_5:
+  name:
+  platform: zwave
+  unique_id: 12-72057594244268162
+sensor.fibaro_system_fgwpef_wall_plug_exporting_5:
+  name:
+  platform: zwave
+  unique_id: 12-72057594244268544
+sensor.fibaro_system_fgwpef_wall_plug_gen5_power:
+  name:
+  platform: zwave
+  unique_id: 15-72057594294583362
+sensor.fibaro_system_fgwpef_wall_plug_gen5_power_2:
+  name:
+  platform: zwave
+  unique_id: 15-72057594294599810
+sensor.fibaro_system_fgwpef_wall_plug_gen5_exporting:
+  name:
+  platform: zwave
+  unique_id: 15-72057594294600192
+sensor.fibaro_system_fgwpef_wall_plug_gen5_sourcenodeid:
+  name:
+  platform: zwave
+  unique_id: 15-72057594295631905
+sensor.fibaro_system_fgwpef_wall_plug_gen5_power_management:
+  name:
+  platform: zwave
+  unique_id: 15-72057594295632049
+sensor.fibaro_system_fgwpef_wall_plug_gen5_power_3:
+  name:
+  platform: zwave
+  unique_id: 16-72057594311360578
+sensor.fibaro_system_fgwpef_wall_plug_gen5_power_4:
+  name:
+  platform: zwave
+  unique_id: 16-72057594311377026
+sensor.fibaro_system_fgwpef_wall_plug_gen5_exporting_2:
+  name:
+  platform: zwave
+  unique_id: 16-72057594311377408
+sensor.fibaro_system_fgwpef_wall_plug_gen5_sourcenodeid_2:
+  name:
+  platform: zwave
+  unique_id: 16-72057594312409121
+sensor.fibaro_system_fgwpef_wall_plug_gen5_power_management_2:
+  name:
+  platform: zwave
+  unique_id: 16-72057594312409265
+sensor.fibaro_system_fgwpef_wall_plug_power_6:
+  name:
+  platform: zwave
+  unique_id: 2-72057594076479554
+sensor.fibaro_system_fgwpef_wall_plug_power_7:
+  name:
+  platform: zwave
+  unique_id: 5-72057594126811202
+sensor.fibaro_system_fgwpef_wall_plug_power_8:
+  name:
+  platform: zwave
+  unique_id: 6-72057594143588418
+sensor.fibaro_system_fgwpef_wall_plug_power_9:
+  name:
+  platform: zwave
+  unique_id: 7-72057594160365634
+sensor.fibaro_system_fgwpef_wall_plug_power_10:
+  name:
+  platform: zwave
+  unique_id: 12-72057594244251714
+light.koksfonster:
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:02:90:92:d8-0b
+light.matbord:
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:02:5d:1e:83-0b
+light.barnsovrum_rgb:
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:03:df:1d:fe-0b
+light.soffa:
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:03:df:16:6b-0b
+light.korridor:
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:02:fd:09:67-0b
+light.dator:
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:02:fe:db:36-0b
+light.entre:
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:02:5d:1e:5d-0b
+light.sovrum:
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:02:5f:9d:67-0b
+light.entre1:
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:02:fd:00:28-0b
+light.entre2:
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:02:fd:0f:0a-0b
+sensor.fibaro_system_fgms001_motion_sensor_temperature:
+  name:
+  platform: zwave
+  unique_id: 3-72057594093256722
+sensor.fibaro_system_fgms001_motion_sensor_luminance:
+  name:
+  platform: zwave
+  unique_id: 3-72057594093256754
+sensor.fibaro_system_fgms001_motion_sensor_general:
+  name:
+  platform: zwave
+  unique_id: 3-72057594095009793
+sensor.bollen_general:
+  name:
+  platform: zwave
+  unique_id: 3-72057594093256738
+media_player.kallare:
+  name:
+  platform: cast
+  unique_id: d6496bc4-dac4-244d-a513-9175ec237947
