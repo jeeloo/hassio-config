@@ -1,4 +1,5 @@
 homeassistant:
+
   # Name of the location where Home Assistant is running
   name: Home
   # Location required to calculate the time the sun rises and sets
@@ -14,13 +15,27 @@ homeassistant:
   customize: !include customize.yaml
 
 # Show links to resources in log and frontend
-#introduction:
+introduction:
 
 # Enables the frontend
 frontend:
 
 # Enables configuration UI
 config:
+
+# Example configuration.yaml entry with exclude
+recorder:
+  purge_keep_days: 5
+  exclude:
+    domains:
+      - automation
+      - weblink
+      - updater
+      - media_player
+    entities:
+      - sun.sun # Don't record sun data
+      - sensor.last_boot # Comes from 'systemmonitor' sensor platform
+      - sensor.date
 
 http:
   # Secrets are defined in the file secrets.yaml
@@ -83,10 +98,6 @@ sensor:
     unit_of_measurement: "°C"
     value_template: '{{ value | multiply(0.001) }}'
 
-#hue:
-  #bridges:
-  #  - host: 192.168.1.175
-
 # Text to speech
 tts:
   - platform: google
@@ -94,10 +105,16 @@ tts:
 zwave:
   usb_path: /dev/ttyAMA0
 
+# Cloud
+cloud:
+
 notify:
   - platform: pushbullet
     name: pushbullet
     api_key: o.PKxhCkQhhYwfNuzW85WoALyjV3izTvG3
+
+
+system_health:
 
 group: !include groups.yaml
 automation: !include automations.yaml

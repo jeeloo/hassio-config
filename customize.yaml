@@ -1,12 +1,4 @@
-sensor.alarm_level:
-  hidden: true
-sensor.alarm_level_2:
-  hidden: true
-sensor.alarm_type:
-  hidden: true
-sensor.alarm_type_2:
-  hidden: true
-sensor.fibaro_system_fgms001_motion_sensor_general:
+sensor.fibaro_system_fgwpef_wall_plug_exporting_5:
   hidden: true
 sensor.fibaro_system_fgwpef_wall_plug_exporting:
   hidden: true
@@ -14,11 +6,35 @@ sensor.fibaro_system_fgwpef_wall_plug_exporting_2:
   hidden: true
 sensor.fibaro_system_fgwpef_wall_plug_exporting_3:
   hidden: true
-sensor.fibaro_system_fgwpef_wall_plug_exporting_4:
+sensor.fibaro_system_fgwpef_wall_plug_gen5_alarm_level_2:
   hidden: true
-sensor.fibaro_system_fgwpef_wall_plug_exporting_5:
+sensor.fibaro_system_fgwpef_wall_plug_gen5_alarm_level:
+  hidden: true
+sensor.fibaro_system_fgwpef_wall_plug_gen5_alarm_type_2:
+  hidden: true
+sensor.fibaro_system_fgwpef_wall_plug_gen5_alarm_type:
+  hidden: true
+sensor.fibaro_system_fgwpef_wall_plug_gen5_exporting_2:
   hidden: true
 sensor.fibaro_system_fgwpef_wall_plug_gen5_exporting:
   hidden: true
-sensor.fibaro_system_fgwpef_wall_plug_gen5_exporting_2:
+sensor.fibaro_system_fgwpef_wall_plug_gen5_power_management:
+  hidden: true
+sensor.fibaro_system_fgwpef_wall_plug_gen5_power_management_2:
+  hidden: true
+sensor.fibaro_system_fgwpef_wall_plug_gen5_sourcenodeid:
+  hidden: true
+sensor.fibaro_system_fgwpef_wall_plug_gen5_sourcenodeid_2:
+  hidden: true
+sensor.fibaro_system_fgwpef_wall_plug_exporting_4:
+  hidden: true
+light.entre:
+  hidden: true
+light.hallen:
+  hidden: true
+light.barnsovrum:
+  hidden: true
+light.entertainment_area_1:
+  hidden: true
+light.group_for_wakeup:
   hidden: true

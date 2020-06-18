@@ -1,129 +1,59 @@
-- action:
-  - service: switch.turn_on
-    data:
-      entity_id: group.akvarium
-  alias: Akvarium on
-  condition: []
-  id: '1513456575113'
-  trigger:
-  - at: 09:30
-    platform: time
-- action:
-  - service: homeassistant.turn_off
-    data:
-      entity_id: group.akvarium
-  alias: Akvarium Off
-  condition: []
-  id: '1513458015193'
-  trigger:
-  - at: '19:00'
-    platform: time
-- action:
-  - data:
-      entity_id: group.nattlampor
-    service: homeassistant.turn_on
-  alias: 'Nattlampor på '
-  condition: []
-  id: '1513471472905'
+- id: '1536607265961'
+  alias: Nattlampor på
   trigger:
   - event: sunset
+    offset: '-15'
     platform: sun
   - at: 05:00
     platform: time
-- action:
+  condition: []
+  action:
+  - alias: ''
+    data:
+      brightness: 40
+      entity_id: group.nlhue
+    service: homeassistant.turn_on
+  - data:
+      entity_id: group.nlzw
+    service: switch.turn_on
+- id: '1536607441102'
+  alias: Nattlampor av
+  trigger:
+  - event: sunrise
+    offset: '10'
+    platform: sun
+  - at: 00:00
+    platform: time
+  - at: 08:00
+    platform: time
+  condition: []
+  action:
   - data:
       entity_id: group.nattlampor
     service: homeassistant.turn_off
-  alias: Nattlampor av
-  condition: []
-  id: '1513471571410'
-  trigger:
-  - at: 00:00
-    platform: time
-  - event: sunrise
-    platform: sun
-  - at: 08:00
-    platform: time
-- action:
   - data:
-      entity_id: switch.switch_6
-    service: switch.turn_on
-  alias: Barnsovrum fönsterlampa på
-  condition:
-  - condition: time
-    weekday:
-    - mon
-    - tue
-    - wed
-    - thu
-    - fri
-  id: '1513526053354'
-  trigger:
-  - at: 06:45
-    platform: time
-- action:
-  - data:
-      entity_id: switch.switch_6
+      entity_id: switch.telldus_tzwp100_plugin_switch_switch_2
     service: switch.turn_off
-  alias: Barnsovrum fönsterlampa av
+- id: '1536608356759'
+  alias: Akvarium på
+  trigger:
+  - at: '11:30'
+    platform: time
   condition: []
-  id: '1513526396033'
-  trigger:
-  - at: '19:45'
-    platform: time
-  - event: sunrise
-    offset: 00:30:00
-    platform: sun
-  - at: 08:00
-    platform: time
-- action:
+  action:
   - data:
-      entity_id: switch.switch_8
-    service: homeassistant.turn_on
-  alias: Motorvärmare på
+      entity_id: group.akvarium
+    service: switch.turn_on
+- id: '1536608437040'
+  alias: Akvarium av
+  trigger:
+  - at: '19:30'
+    platform: time
   condition: []
-  id: '1513639483915'
-  trigger:
-  - at: 05:30
-    platform: time
-- action:
+  action:
   - data:
-      entity_id: switch.switch_8
-    service: homeassistant.turn_off
-  alias: Motorvärmare av
-  condition: []
-  id: '1513639537081'
-  trigger:
-  - at: '8:00'
-    platform: time
-- action:
-  - data:
-      entity_id: switch.switch_6
-    service: homeassistant.turn_on
-  alias: Barnsovrum fönsterlampa på kväll
-  condition:
-  - after: '14:00'
-    before: '19:30'
-    condition: time
-  id: '1516525857892'
-  trigger:
-  - event: sunset
-    offset: -00:30:00
-    platform: sun
-- action:
-  - data_template:
-      brightness: '{{states.sun.sun.attributes.elevation | int * 4 + 150}}'
-      entity_id: group.entre
-    service: homeassistant.turn_on
-  alias: Sensor hallen på
-  condition:
-  - condition: template
-    value_template: '{{ states.sun.sun.attributes.elevation < 2 }}'
-  id: '1516526519801'
-  trigger:
-  - entity_id: binary_sensor.sensor
-    platform: state
-    to: 'on'
+      entity_id: group.akvarium
+    service: switch.turn_off
 - action:
   - data:
       entity_id: group.entre
@@ -132,18 +62,96 @@
   alias: Sensor hallen av
   id: '1516528117333'
   trigger:
-  - entity_id: binary_sensor.sensor
+  - entity_id: binary_sensor.fibaro_system_fgms001_motion_sensor_sensor
     for: 00:03:00
     platform: state
     to: 'off'
-- action:
-  - data:
-      message: Rörelse i hallen
-    service: notify.pushbullet
-  alias: Larm test
+- id: '1516526519801'
+  alias: Sensor hallen på
+  trigger:
+  - entity_id: binary_sensor.fibaro_system_fgms001_motion_sensor_sensor
+    platform: state
+    to: 'on'
   condition:
-  - after: 08:00
-    before: '16:00'
+  - condition: template
+    value_template: '{{ states.sun.sun.attributes.elevation < 3 }}'
+  action:
+  - data:
+      entity_id: group.entre
+    data_template:
+      brightness: '{{states.sun.sun.attributes.elevation | int * 4 + 200}}'
+    service: homeassistant.turn_on
+- id: '1540752390473'
+  alias: Motorvärmare på
+  trigger:
+  - at: 05:30
+    platform: time
+  condition: []
+  action:
+  - data:
+      entity_id: switch.fibaro_system_fgwpef_wall_plug_switch_4
+    service: switch.turn_on
+- id: '1540752501830'
+  alias: Motorvärmare av
+  trigger:
+  - at: 08:00
+    platform: time
+  condition: []
+  action:
+  - data:
+      entity_id: switch.fibaro_system_fgwpef_wall_plug_switch_4
+    service: switch.turn_off
+- id: '1540752600292'
+  alias: Utelampor på
+  trigger:
+  - event: sunset
+    offset: '20'
+    platform: sun
+  condition: []
+  action:
+  - data:
+      entity_id:
+    service: homeassistant.turn_on
+- id: '1540752706428'
+  alias: Utelampor
+  trigger:
+  - event: sunrise
+    offset: '-10'
+    platform: sun
+  condition: []
+  action:
+  - data:
+      entity_id:
+    service: homeassistant.turn_off
+- id: '1541431368483'
+  alias: Barnsovrum fönsterlampa på
+  trigger:
+  - event: sunset
+    offset: '-15'
+    platform: sun
+  condition: []
+  action:
+  - data:
+      entity_id: switch.telldus_tzwp100_plugin_switch_switch_2
+    service: switch.turn_on
+- id: '1541431456616'
+  alias: Barnsovrum fönsterlampa av
+  trigger:
+  - at: '19:45'
+    platform: time
+  - at: 08:00
+    platform: time
+  condition: []
+  action:
+  - data:
+      entity_id: switch.telldus_tzwp100_plugin_switch_switch_2
+    service: switch.turn_off
+- id: '1541431702857'
+  alias: Barnsovrum fönsterlampa på morgon
+  trigger:
+  - at: 06:45
+    platform: time
+  condition:
     condition: time
     weekday:
     - mon
@@ -151,67 +159,23 @@
     - wed
     - thu
     - fri
-  id: '1516551013433'
+  action:
+  - data:
+      entity_id: switch.telldus_tzwp100_plugin_switch_switch_2
+    service: switch.turn_on
+- id: '1583263433458'
+  alias: Nattlampa sovrum
   trigger:
-  - entity_id: binary_sensor.bollen_sensor
+  - entity_id: light.sovrum_2
+    from: 'off'
     platform: state
     to: 'on'
-- action:
-  - data:
-      brightness: 175
-      kelvin: 2700
-      entity_id: light.barnsovrum_rgb
-    service: light.turn_on
-  alias: Sovdags barn on
-  condition: []
-  id: '1518723121672'
-  trigger:
-  - at: '19:15'
-    platform: time
-- action:
-  - service: light.turn_off
-    data:
-      entity_id: light.barnsovrum_rgb
-      transition: 899
-  alias: Sovdags barn dimma
-  condition: []
-  id: '1518723683892'
-  trigger:
-  - at: '19:45'
-    platform: time
-- action:
-  - service: light.hue_activate_scene
-    data:
-      group_name: Barnsovrum
-      scene_name: Nightlight
-  alias: Sovdags barn nattlampa
-  condition: []
-  id: '1518725681480'
-  trigger:
-  - at: '20:00'
-    platform: time
-- action:
-  - service: light.turn_off
-    data:
-      entity_id: light.barnsovrum_rgb
-  alias: Sovdags barn nattlampa av
-  condition: []
-  id: '1518726278721'
-  trigger:
-  - at: '21:00'
-    platform: time
-- action:
-  - data:
-      activity: 25940701
-      entity_id: remote.harmony_hub
-    service: remote.turn_on
-  alias: Chromecast trigger
   condition:
-  - condition: template
-    value_template: '{{ states.remote.harmony_hub.attributes.current_activity != 25940701
-      }}'
-  id: '1518947206385'
-  trigger:
-  - entity_id: media_player.vardagsrum
-    platform: state
-    to: playing
+  - after: '20:00'
+    before: 03:00
+    condition: time
+  action:
+  - data:
+      brightness: 40
+      entity_id: light.sovrum_2
+    service: homeassistant.turn_on

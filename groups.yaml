@@ -1,8 +1,9 @@
 akvarium:
   name: Akvarium
   entities:
-    - switch.switch_2
-    - switch.switch_3
+    - switch.fibaro_system_fgwpef_wall_plug_switch_2
+    - switch.fibaro_system_fgwpef_wall_plug_switch_3
+    - switch.fibaro_system_fgwpef_wall_plug_gen5_switch_2
 almanac:
   name: Almanac
   entities:
@@ -15,17 +16,23 @@ hamony:
   name: Harmony Hub
   entities:
     - sensor.living_room
+nlzw:
+  name: Nattlampor Z-Wave
+  entities:
+    - switch.fibaro_system_fgwpef_wall_plug_gen5_switch
+    - switch.fibaro_system_fgwpef_wall_plug_switch
+    - switch.fibaro_system_fgwpef_wall_plug_switch_5
+    - switch.telldus_tzwp100_plugin_switch_switch
+nlhue:
+  name: Nattlampor Hue
+  entities:
+    - light.koksfonster2
+    - light.dator
 nattlampor:
   name: Nattlampor
   entities:
-    - switch.switch_5
-    - switch.switch
-    - switch.switch_4
-    - switch.switch_7
-    - switch.switch_9
-    - switch.switch_10
-    - light.koksfonster
-    - light.dator
+    - group.nlzw
+    - group.nlhue
 entre:
   name: Entre
   entities:
