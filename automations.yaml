@@ -72,15 +72,14 @@
   - entity_id: binary_sensor.fibaro_system_fgms001_motion_sensor_sensor
     platform: state
     to: 'on'
-  condition:
-  - condition: template
-    value_template: '{{ states.sun.sun.attributes.elevation < 3 }}'
+    from: 'off'
   action:
   - data:
       entity_id: group.entre
     data_template:
       brightness: '{{states.sun.sun.attributes.elevation | int * 4 + 200}}'
     service: homeassistant.turn_on
+  mode: single
 - id: '1540752390473'
   alias: Motorvärmare på
   trigger:
@@ -110,18 +109,18 @@
   condition: []
   action:
   - data:
-      entity_id:
+      entity_id: switch.fibaro_system_fgwpe_f_wall_plug_gen5_switch
     service: homeassistant.turn_on
 - id: '1540752706428'
-  alias: Utelampor
+  alias: Utelampor av
   trigger:
   - event: sunrise
-    offset: '-10'
+    offset: '10'
     platform: sun
   condition: []
   action:
   - data:
-      entity_id:
+      entity_id: switch.fibaro_system_fgwpe_f_wall_plug_gen5_switch
     service: homeassistant.turn_off
 - id: '1541431368483'
   alias: Barnsovrum fönsterlampa på
@@ -166,16 +165,46 @@
 - id: '1583263433458'
   alias: Nattlampa sovrum
   trigger:
-  - entity_id: light.sovrum_2
-    from: 'off'
+  - from: 'off'
     platform: state
     to: 'on'
+    entity_id: light.hue_ambiance_lamp_1
   condition:
   - after: '22:00'
     before: 03:00
     condition: time
   action:
   - data:
-      brightness: 40
+      brightness: 20
       entity_id: light.sovrum_2
     service: homeassistant.turn_on
+  mode: single
+- id: '1606853443817'
+  alias: Button singel tap
+  trigger:
+  - event_data:
+      entity_id: zwave.fibaro_red_btn_01
+      scene_data: 7680
+      scene_id: 1
+    event_type: zwave.scene_activated
+    platform: event
+  condition: []
+  action:
+  - data:
+      brightness: 100
+      entity_id: light.dator
+    service: light.turn_on
+- id: '1606856656501'
+  alias: Button double tap
+  trigger:
+  - event_data:
+      entity_id: zwave.fibaro_red_btn_01
+      scene_data: 7860
+      scene_id: 1
+    event_type: zwave.scene_activated
+    platform: event
+  condition: []
+  action:
+  - data:
+      entity_id: light.dator
+    service: homeassistant.turn_off

@@ -15,7 +15,7 @@ homeassistant:
   customize: !include customize.yaml
 
 # Show links to resources in log and frontend
-introduction:
+# introduction:
 
 # Enables the frontend
 frontend:
@@ -70,15 +70,6 @@ map:
 # Track the sun
 sun:
 
-# Weather prediction
-sensor:
-  - platform: yr
-    name: Weather
-    forecast: 24
-    monitored_conditions:
-      - temperature
-      - symbol
-      - dewpointTemperature
 #Show harmony remote avtivity
   - platform: template
     sensors:
@@ -100,13 +91,14 @@ sensor:
 
 # Text to speech
 tts:
-  - platform: google
+  - platform: google_translate
+    service_name: google_say
 
 zwave:
   usb_path: /dev/ttyAMA0
 
 # Cloud
-cloud:
+#cloud:
 
 notify:
   - platform: pushbullet
