@@ -36,5 +36,5 @@ jobs:
           echo test, and deploy your project.
           
       - name: Validate YAML file
-        uses: frenck/action-yamllint@1
+        uses: frenck/action-yamllint@v1
         
